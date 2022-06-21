@@ -1,6 +1,8 @@
 import taskConstructor from "./taskConstructor.js";
 import TodoStorage from "./storage";
 import SortTask from "./sortTask";
+import LocalStorage from "./localStorage.js";
+
 
 function generateId() {
   const allTasks = TodoStorage.getAllTasks();
@@ -41,6 +43,7 @@ class Task {
 
     TodoStorage.storeTask(id, task);
     if (taskGroup != "") TodoStorage.saveTaskGroup(id, task, taskGroup);
+    LocalStorage.setTask();
   };  
 };
 

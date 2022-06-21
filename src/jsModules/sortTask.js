@@ -51,7 +51,6 @@ class SortTask {
   static week(taskDate) {
     const currentDate = getCurrentDate();
     const dueDate = formatInputDate(taskDate);
-    console.log({currentDate, dueDate}) 
     if ((dueDate.month === currentDate.month) && 
         (dueDate.year === currentDate.year) &&
         (dueDate.today > currentDate.today)) return dueDate.today - currentDate.today <= 7;
