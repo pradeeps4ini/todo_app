@@ -1,0 +1,105 @@
+:root {
+  --clr-accent0: hsl(44.9, 100%, 50%);
+  --clr-accent1: hsl(218.6, 11.9%, 23.1%);
+  
+  --clr-neutral0: hsl(0, 0%, 42.7%);
+  --clr-neutral1: hsl(0, 0%, 100%);
+
+  --f-family: 'Poppins', sans-serif;
+  
+  --f-weight-0: 400;
+  --f-weight-1: 700;
+
+  --f-size: 62.5%;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+html {
+  font-size: var(--font-size);
+}
+
+body {
+  grid-template: 50px 1fr 50px / 1fr 4fr;
+  grid-template-areas: "heading heading" 
+                       "nav main"
+                       "footer footer";
+  gap: 4rem;                     
+  padding-inline: 2rem;
+  padding-block: 1rem;
+  font-family: var(--f-family);
+}
+
+/* header */
+
+header {
+  grid-area: heading;
+  color: var(--clr-accent0);
+}
+
+nav {
+  grid-area: nav;
+  gap: 4rem;
+  background-color: var(--clr-neutral0);
+}
+
+
+/*  main  */
+
+main {
+  grid-area: main;
+}
+
+.task-item div{
+  display: flex;
+}
+
+
+/* task input form  */
+
+.task-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+dialog::backdrop {
+  background-color: var(--clr-accent1);
+}
+
+/* footer */
+
+footer {
+  grid-area: footer;
+}
+
+/* utility  */
+
+.grid {
+  display: grid;
+}
+
+.flex {
+  display: flex;
+}
+
+.f-col {
+  flex-flow: column nowrap;
+}
+
+button {
+  cursor: pointer;
+}
+
+p {
+  font-size: clamp(1rem, calc(1vw + 1rem), 2rem);
+}
