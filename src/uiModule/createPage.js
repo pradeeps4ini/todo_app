@@ -4,6 +4,8 @@ import main from "./main.js";
 import footer from "./footer.js";
 import createInputForm from "./taskInputForm.js";
 import Task from "../jsModules/task.js";
+import displayTask from "./displayTasks.js";
+
 
 const BODY = document.querySelector("body");
 BODY.classList.add("grid");
@@ -30,6 +32,7 @@ const addEvents = function() {
   domElems.taskSubmitBtn.addEventListener("click", e => {
     domElems.taskDialog.close();
     Task.taskInputCollector(e);
+    displayTask();    
   });
 };
 

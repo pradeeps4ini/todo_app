@@ -11,7 +11,6 @@ class TodoStorage {
 
   static storeTask(id, task) {
     TodoStorage.saveTaskTodo(id, task);    
-    console.log(TODO);
   };
 
   static saveTaskTodo(id, task) {
@@ -38,8 +37,10 @@ class TodoStorage {
       TODO.group[taskGroup] = {};
       TODO.group[taskGroup][id] = task;
     }
+  };
 
-    console.log(TODO)
+  static getTasks() {
+    return TODO;
   };
 
   static getAllTasks() {

@@ -25,7 +25,7 @@ class Task {
   };
 
 
-  static storeTask (task) {
+  static storeTask(task) {
     const id = generateId();
 
     const dueDate = task.dueDate;  
@@ -45,6 +45,14 @@ class Task {
     if (taskGroup != "") TodoStorage.saveTaskGroup(id, task, taskGroup);
     LocalStorage.setTask();
   };  
+
+  static getLastTask() {
+    const allTasks = TodoStorage.getAllTasks();
+    const taskId = generateId();
+    const lastTask = allTasks[taskId - 1];
+
+    return lastTask;
+  };
 };
 
 
