@@ -5,7 +5,6 @@ class LocalStorage {
   
   static setTask() {
     const todoList = TodoStorage.getTasks();
-    console.log(todoList);
     localStorage.setItem("todo", JSON.stringify(todoList));
   };
 

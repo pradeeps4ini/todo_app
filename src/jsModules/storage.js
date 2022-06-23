@@ -10,11 +10,7 @@ const TODO = {
 class TodoStorage {
 
   static storeTask(id, task) {
-    TodoStorage.saveTaskTodo(id, task);    
-  };
-
-  static saveTaskTodo(id, task) {
-    TODO.allTasks[id] = task;  
+    TODO.allTasks[id] = task;
   };
 
   static saveTaskToday(id, task) {
@@ -38,6 +34,7 @@ class TodoStorage {
       TODO.group[taskGroup][id] = task;
     }
   };
+
 
   static getTasks() {
     return TODO;

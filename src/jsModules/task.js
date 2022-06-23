@@ -22,6 +22,7 @@ class Task {
     const task = new taskConstructor(title, note, dueDate, group, priority);
     
     Task.storeTask(task);
+    return task;
   };
 
 
