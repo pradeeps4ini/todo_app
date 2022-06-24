@@ -20,14 +20,15 @@ class Task {
     const group = e.target.parentNode.elements["task-group"].value;
 
     const task = new taskConstructor(title, note, dueDate, group, priority);
-    
-    Task.storeTask(task);
-    return task;
+    const id = generateId();
+
+    Task.storeTask(task, id);
+
+    return { task , id };
   };
 
 
-  static storeTask(task) {
-    const id = generateId();
+  static storeTask(task, id) {
 
     const dueDate = task.dueDate;  
     const taskGroup = task.taskGroup;
@@ -47,6 +48,7 @@ class Task {
     LocalStorage.setTask();
   };  
 
+
   static getLastTask() {
     const allTasks = TodoStorage.getAllTasks();
     const taskId = generateId();
@@ -54,6 +56,17 @@ class Task {
 
     return lastTask;
   };
+
+  static editTask(e) {
+    const taskItem = e.target.parenNode.parentNode;
+    const taskId = taskItem.classList[2];
+  };
+
+  static removeTask(e) {
+    const taskItem = e.target.parentNode.parentNode;
+    const taskId = taskItem.classList[2];
+    TodoStorage.removeTask(taskId);
+  }
 };
 
 

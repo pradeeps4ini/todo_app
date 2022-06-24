@@ -1,16 +1,23 @@
 const TODO = {
-              allTasks: {},
-              today: {},
-              week: {},
-              month: {},
+              allTasks: [],
+              today: [],
+              week: [],
+              month: [],
               group: {}
 };
+
+
+function removeTask(obj, taskId) {
+  
+  //if (taskId in obj)
+}
 
 
 class TodoStorage {
 
   static storeTask(id, task) {
     TODO.allTasks[id] = task;
+    console.log(TODO)
   };
 
   static saveTaskToday(id, task) {
@@ -30,7 +37,7 @@ class TodoStorage {
     if (taskGroup in TODO.group) {
       TODO.group[taskGroup][id] = task;
     } else {
-      TODO.group[taskGroup] = {};
+      TODO.group[taskGroup] = [];
       TODO.group[taskGroup][id] = task;
     }
   };
@@ -64,6 +71,15 @@ class TodoStorage {
 
     return (isGroupPresent) ? TODO.group[taskGroup] : null;
   };
+
+
+  static removeTask(taskId) {
+    for (let item in TODO) {
+      
+    };
+  };
+
+
 };
 
 

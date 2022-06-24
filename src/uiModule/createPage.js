@@ -5,6 +5,7 @@ import footer from "./footer.js";
 import createInputForm from "./taskInputForm.js";
 import Task from "../jsModules/task.js";
 import displayTask from "./displayTasks.js";
+import displayGroup from "./displayTaskGroup.js";
 
 
 const BODY = document.querySelector("body");
@@ -31,8 +32,10 @@ const addEvents = function() {
 
   domElems.taskSubmitBtn.addEventListener("click", e => {
     domElems.taskDialog.close();
-    Task.taskInputCollector(e);
-    displayTask();    
+    const taskObj = Task.taskInputCollector(e);
+    displayTask(taskObj.task, taskObj.id);    
+
+    (taskObj.task.taskGroup != "") ? displayGroup(taskObj.task.taskGroup) : null; 
   });
 };
 
