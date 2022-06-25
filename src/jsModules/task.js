@@ -62,10 +62,8 @@ class Task {
     const taskId = taskItem.classList[2];
   };
 
-  static removeTask(e) {
-    const taskItem = e.target.parentNode.parentNode;
-    const taskId = taskItem.classList[2];
-    TodoStorage.removeTask(taskId);
+  static removeTask(e, id) {
+    TodoStorage.removeTask(id);
   }
 };
 

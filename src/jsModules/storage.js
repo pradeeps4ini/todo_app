@@ -15,7 +15,6 @@ class TodoStorage {
 
   static saveTaskToday(id, task) {
     TODO.today[id] = task; 
-    console.log(TODO)
   };
 
   static saveTaskWeek(id, task) {
@@ -70,7 +69,6 @@ class TodoStorage {
     const obj = TODO;
 
     function removeTask(taskId, obj) {
-      console.log({obj})
       for (let item in obj) {
         if (Array.isArray(obj[item])) {
           obj[item].splice(taskId, 1)

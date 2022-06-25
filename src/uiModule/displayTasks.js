@@ -1,5 +1,7 @@
 import taskDiv from "./taskItem.js";
 import Task from "../jsModules/task.js";
+import removeTask from "./removeTask.js";
+
 
 const displayTask = function(task, id) {
 
@@ -14,7 +16,11 @@ const displayTask = function(task, id) {
   taskDomDiv.classList.add(id);
   
   taskDomDiv.children[3].children[0].addEventListener("click", Task.editTask);
-  taskDomDiv.children[3].children[1].addEventListener("click", Task.removeTask);
+  taskDomDiv.children[3].children[1].addEventListener("click", e => {
+    id = e.target.parentNode.parentNode.classList[2];
+    Task.removeTask(e, id);
+    removeTask(e, TASKLIST, id);
+  });
 
   TASKLIST.appendChild(taskDomDiv);
 };
