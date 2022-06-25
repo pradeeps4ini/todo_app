@@ -7,17 +7,10 @@ const TODO = {
 };
 
 
-function removeTask(obj, taskId) {
-  
-  //if (taskId in obj)
-}
-
-
 class TodoStorage {
 
   static storeTask(id, task) {
     TODO.allTasks[id] = task;
-    console.log(TODO)
   };
 
   static saveTaskToday(id, task) {
@@ -74,12 +67,21 @@ class TodoStorage {
 
 
   static removeTask(taskId) {
-    for (let item in TODO) {
-      
+    const obj = TODO;
+
+    function removeTask(taskId, obj) {
+      console.log({obj})
+      for (let item in obj) {
+        if (Array.isArray(obj[item])) {
+          obj[item].splice(taskId, 1)
+        } else {
+          removeTask(taskId, obj[item]);
+  	    }
+      };  
     };
+
+    removeTask(taskId, obj);
   };
-
-
 };
 
 
